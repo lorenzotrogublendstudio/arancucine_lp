@@ -1,0 +1,160 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Hero */
+.hero {
+  background: url('img/hero.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #F2E2D3;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #444;
+}
+
+/* Sections */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.collections .grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+  width: 250px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Contact */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+@font-face {
+  font-family: 'MOD20';
+  src: url('../../MOD20.TTF') format('truetype');
+}
+
+.inaugurazione {
+  font-family: 'MOD20', sans-serif;
+  color: #5D7D52;
+  font-size: 8rem;
+  text-align: center;
+  position: relative;
+  top: -40px;               /* spostato più in alto */
+  animation: fadeInUp 2s ease;
+}
+
+.inaugurazione_2{
+  font-family: 'MOD20', sans-serif;
+  color: #5D7D52;
+  font-size: 4rem;
+  text-align: center;
+  position: relative;
+  top: -40px;               /* spostato più in alto */
+  animation: fadeInUp 2s ease;
+}
+
+.promo{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #5D7D52;
+    font-size: 2 rem;
+    text-align: center;
+    position: relative;
+    top: -40px;               /* spostato più in alto */
+    animation: fadeInUp 2s ease;
+}
+
+.logo {
+  display: block;
+  max-width: 450px;              /* un po' più grande */
+  margin: 2rem auto;
+  opacity: 0;                    /* parte invisibile */
+  animation: fadeInUp 1.8s ease forwards;
+}
+
+/* Animazione: dal basso verso l’alto */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80px); /* parte più in basso */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);    /* posizione finale */
+  }
+}
+
+
+
+
+
+/* Animazione: parte dal basso e sfuma in entrata */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
