@@ -866,6 +866,127 @@ footer {
   }
 }
 
+/* Immagini sempre fluide */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hero */
+.hero-content {
+  padding: 1rem;
+}
+
+.hero-content h1,
+.hero-content h2,
+.hero-content h3,
+.hero-content p {
+  word-wrap: break-word;
+}
+
+/* Griglie generali */
+.why_grid,
+.collections .grid,
+.showroom_grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Card */
+.why_card,
+.collections .card,
+.showroom_left,
+.showroom_right {
+  flex: 1 1 300px;
+  max-width: 100%;
+}
+
+/* Evento immagine */
+.evento_img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  object-fit: cover;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  .inaugurazione {
+    font-size: 4rem;
+  }
+  .inaugurazione_2 {
+    font-size: 2rem;
+  }
+  .promo {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Titoli e testi più piccoli */
+  .inaugurazione {
+    font-size: 3rem;
+    top: -10px;
+  }
+  .inaugurazione_2 {
+    font-size: 1.5rem;
+  }
+  .promo {
+    font-size: 1.5rem;
+  }
+  .coming_soon {
+    font-size: 1.5rem;
+  }
+  .coming_soon_text {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Sezioni a colonna */
+  .showroom_grid {
+    flex-direction: column;
+  }
+
+  .why_grid {
+    flex-direction: column;
+  }
+
+  .collections .grid {
+    flex-direction: column;
+  }
+
+  /* Cooking show section */
+  .cooking_show_section {
+    padding: 1rem;
+  }
+  .cooking_show {
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .inaugurazione {
+    font-size: 2.2rem;
+  }
+  .inaugurazione_2 {
+    font-size: 1.2rem;
+  }
+  .promo {
+    font-size: 1.2rem;
+  }
+  .promo_box {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+
 
 
 
