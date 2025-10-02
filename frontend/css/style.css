@@ -14,31 +14,54 @@ body {
 /* Hero */
 .hero {
   background: url('img/hero.jpg') center/cover no-repeat;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #F2E2D3;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  background-color: #e9e5e0;
+}
+.about {
+  background-color: #e9e5e0;
 }
 
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  padding-top: 4rem;
 }
 
 .btn {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #000;
-  color: #fff;
+  padding: 1rem 2.5rem;               /* più grande e comodo */
+  background: black;                /* verde istituzionale */
+  color: #fff;                        /* testo bianco */
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;          /* tutto maiuscolo */
+  letter-spacing: 1px;                /* più elegante */
+  border: none;
+  border-radius: 50px;                /* pill shape */
   text-decoration: none;
-  margin-top: 1rem;
-  transition: background 0.3s;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
 }
 
+/* Effetto hover */
 .btn:hover {
-  background: #444;
+  background: #47633f;                /* verde più scuro */
+  transform: translateY(-3px);        /* leggero sollevamento */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Effetto click */
+.btn:active {
+  transform: translateY(0);           /* torna giù */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* Sections */
@@ -47,11 +70,28 @@ section {
   text-align: center;
 }
 
+.collections {
+  background-color: #e9e5e0;
+}
+
+.services {
+  background-color: #e9e5e0;
+}
+
+.testimonials {
+  background-color: #e9e5e0;
+}
+
+.contact {
+  background-color: #e9e5e0;
+}
+
 .collections .grid {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  
 }
 
 .card {
@@ -125,8 +165,8 @@ footer {
 
 .logo {
   display: block;
-  max-width: 450px;              /* un po' più grande */
-  margin: 2rem auto;
+  max-width: 300px;              /* un po' più grande */
+  margin: 2rem  auto;
   opacity: 0;                    /* parte invisibile */
   animation: fadeInUp 1.8s ease forwards;
 }
@@ -143,10 +183,6 @@ footer {
   }
 }
 
-
-
-
-
 /* Animazione: parte dal basso e sfuma in entrata */
 @keyframes fadeInUp {
   0% {
@@ -158,3 +194,280 @@ footer {
     transform: translateY(0);
   }
 }
+
+.cooking_show {
+  display: block;
+  max-width: 800px;          /* dimensione ampia ma responsive */
+  width: 90%;                /* si adatta su mobile */
+  margin: 2rem auto;         /* centrata */
+  opacity: 0;                /* parte invisibile */
+  animation: fadeInUp 2s ease forwards; /* animazione ingresso */
+}
+
+/* Variante responsive per schermi piccoli */
+@media (max-width: 768px) {
+  .cooking_show {
+    max-width: 95%;
+  }
+}
+
+.cooking_show_section {
+  display: flex;
+  /*margin-top: 4rem;*/            /* spazio sopra */
+  justify-content: center;     /* centra l’immagine orizzontalmente */
+  align-items: center;         /* centra verticalmente se serve */
+  padding: 4rem 2rem;          /* spazio intorno */    
+  text-align: center;
+  background-color: #e9e5e0;
+}
+
+.cooking_show_section .cooking_show {
+  max-width: 1000px;           /* grande su desktop */
+  width: 90%;                  /* si adatta su mobile */
+  opacity: 0;                  /* parte invisibile */
+  animation: fadeInUp 2s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cooking_show_section {
+    padding: 2rem 1rem;
+  }
+  .cooking_show_section .cooking_show {
+    max-width: 95%;
+  }
+}
+
+.coming_soon {
+  font-family: Arial, Helvetica, sans-serif;   /* stesso font elegante */
+  font-size: 3rem;                    /* grande e leggibile */
+  text-align: center;                 /* centrato */
+  color: #000;                        /* nero elegante (puoi cambiare) */
+  margin: 3rem 0 2rem 0;              /* spazio sopra e sotto */
+  letter-spacing: 2px;                /* spaziatura tra lettere */
+  text-transform: uppercase;          /* tutto maiuscolo */
+  opacity: 0;                         /* parte invisibile */
+  animation: fadeInScale 2s ease forwards;
+}
+
+.coming_soon_text {
+  font-family: Arial, Helvetica, sans-serif; /* font più leggibile per il corpo */
+  font-size: 1.5rem;                         /* dimensione media */
+  color: #333;                               /* colore neutro scuro */
+  text-align: center;                        /* centrato */
+  max-width: 800px;                          /* larghezza massima */
+  margin: 1rem auto 2rem auto;               /* spazio sopra e sotto */
+  line-height: 1.6;                          /* leggibilità */
+  opacity: 0;                                /* parte invisibile */
+  animation: fadeInUp 2s ease forwards;      /* stessa animazione elegante */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .coming_soon_text {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+}
+
+
+/* Animazione: fade-in + leggero zoom */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .coming_soon {
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+}
+
+
+.promo_box {
+  background-color: #5D7D52;   /* verde Aran */
+  color: #fff;                 /* testo bianco */
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 900px;            /* larghezza massima */
+  border-radius: 20px;         /* angoli arrotondati */
+  line-height: 1.6;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25); /* ombra elegante */
+  opacity: 0;                  /* parte invisibile */
+  animation: fadeInUp 2s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .promo_box {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    margin: 2rem 1rem;
+  }
+}
+
+
+/* Contenitore esterno con sfondo beige */
+.evento_wrapper {
+  background-color: #e9e5e0;   /* beige elegante */
+  padding: 4rem 2rem;
+}
+
+/* Box interno verde */
+.evento_section {
+  background-color: #5D7D52;   /* verde Aran */
+  color: #fff;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  max-width: 900px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  animation: fadeInUp 2s ease forwards;
+}
+
+.evento_title {
+  font-family: 'MOD20', sans-serif;
+  font-size: 2.5rem;
+  color: #fff;                 /* testo bianco sul verde */
+  margin-bottom: 1.5rem;
+}
+
+.evento_text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: #fff;                 /* testo bianco */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .evento_section {
+    padding: 2rem 1rem;
+  }
+  .evento_title {
+    font-size: 2rem;
+  }
+  .evento_text {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .evento_section {
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
+  }
+  .evento_title {
+    font-size: 2rem;
+  }
+  .evento_text {
+    font-size: 1rem;
+  }
+}
+
+.why_aran {
+  background-color: #e9e5e0;   /* beige elegante */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.why_aran h2 {
+  font-family: 'MOD20', sans-serif;
+  font-size: 2.5rem;
+  color: #5D7D52;
+  margin-bottom: 3rem;
+}
+
+.why_grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* per mobile */
+}
+
+.why_card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  flex: 1 1 250px;   /* minimo 250px, poi si adatta */
+  max-width: 300px;
+
+  /* Animazione di entrata */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effetto hover */
+.why_card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* Ritardo per effetto "staggered" */
+.why_card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.why_card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.why_card:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.why_card h3 {
+  font-size: 1.4rem;
+  color: #5D7D52;
+  margin-bottom: 1rem;
+}
+
+.why_card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Animazione keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .why_aran h2 {
+    font-size: 2rem;
+  }
+  .why_card {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
+
