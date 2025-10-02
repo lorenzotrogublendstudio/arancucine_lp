@@ -26,7 +26,8 @@
       <p class="coming_soon_text"><b>Scopri il marchio di cucine più venduto nel mondo, premiato per design e qualità e progetta la tua nuova cucina con i nostri designer!</b></p>
       <p class="coming_soon_text">Festeggia con noi la nuova apertura e scopri l’offerta irripetibile.</p>
       <p class="promo_box">Lavatrice, asciugatrice e frigorifero Samsung in regalo con l’acquisto della tua nuova cucina Aran.</p>
-      <a href="#contatti" class="btn">Prenota una consulenza gratuita</a>
+      <a href="#" class="btn openModalBtn" >Prenota una consulenza gratuita</a>
+      <p class="coming_soon_text">Prenota un appuntamento con i nostri arredatori e lasciati guidare nella progettazione della cucina perfetta per te.</p>
     </div>
   </header>
   <section class="cooking_show_section">
@@ -47,9 +48,8 @@
         Vi aspettiamo in <b>Via Gabriele d'Annunzio 57</b> per brindare insieme a questa nuova apertura e vivere da vicino l’esperienza ARAN.
         </p>
     </div>
-    </section>
-    <section style="background-color: #e9e5e0;">
-        <img src="../images/promo_desktop_1400x350.png" />
+    <section>
+        <img src="../images/promo_desktop_1400x350.png" class="evento_img" alt="Evento Inaugurazione"/>
     </section>
     <section class="why_aran">
     <h2>Perché scegliere ARAN Cucine?</h2>
@@ -80,22 +80,61 @@
     <h2>Le nostre collezioni</h2>
     <div class="grid">
       <div class="card">
-        <img src="" alt="Collezione 1">
-        <h3>Collezione Lab</h3>
+        <img src="../images/pag 10-11_BELLAGIO 1_(72).jpg" alt="Cucine">
+        <h3>Cucine</h3>
       </div>
       <div class="card">
-        <img src="" alt="Collezione 2">
-        <h3>Collezione Volare</h3>
+        <img src="../images/pag 06-07_72 dpi.jpg" alt="Bagni">
+        <h3>Bagni</h3>
       </div>
       <div class="card">
-        <img src="" alt="Collezione 3">
-        <h3>Collezione Sipario</h3>
+        <img src="../images/0370_17_V01_SET_03_ARMADI.jpg" alt="Armadi">
+        <h3>Armadi</h3>
       </div>
     </div>
   </section>
 
   <!-- Servizi -->
-  <section class="services">
+   <section class="showroom_section">
+    <div class="showroom_grid">
+
+        <!-- Colonna sinistra -->
+        <div class="showroom_left">
+        <h2>Richiedi il tuo preventivo personalizzato</h2>
+        <p>Un progetto esclusivo, cucito su misura per i tuoi spazi e le tue esigenze.</p>
+        <a class="btn openModalBtn" >Richiedi il tuo preventivo</a>
+        </div>
+
+        <!-- Colonna destra -->
+        <div class="showroom_right">
+        <h2>Vieni a trovarci nel nostro showroom a Piacenza</h2>
+        <p>Scopri dal vivo le nuove collezioni ARAN e lasciati ispirare dal design.</p>
+        
+       <div class="map_container">
+        <iframe
+            width="100%"
+            height="250"
+            style="border:0;"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=SS+9+Via+Emilia,+24+Pontenure+PC&output=embed">
+        </iframe>
+       </div>
+
+
+        <div class="store_hours">
+            <p><b>Orari di apertura:</b></p>
+            <p>Lunedì: 16.00 – 20.00</p>
+            <p>Martedì – Sabato: 09.30 – 13.00 / 16.00 – 20.00</p>
+            <p>Domenica: chiuso</p>
+        </div>
+        </div>
+
+    </div>
+    </section>
+
+  <!--<section class="services">
     <h2>I nostri servizi</h2>
     <ul>
       <li>Consulenza personalizzata</li>
@@ -103,31 +142,30 @@
       <li>Montaggio professionale</li>
       <li>Assistenza post-vendita</li>
     </ul>
-  </section>
+  </section>-->
 
-  <!-- Testimonianze -->
-  <section class="testimonials">
-    <h2>Cosa dicono i nostri clienti</h2>
-    <blockquote>
-      “La nostra cucina Aran è perfetta: elegante e funzionale. Servizio impeccabile a Piacenza!”
-    </blockquote>
-  </section>
 
-  <!-- Contatti -->
-  <section id="contatti" class="contact">
-    <h2>Prenota la tua consulenza</h2>
-    <form id="contactForm">
-      <input type="text" placeholder="Nome" required>
-      <input type="email" placeholder="Email" required>
-      <input type="tel" placeholder="Telefono">
-      <textarea placeholder="Messaggio"></textarea>
-      <button type="submit" class="btn">Invia</button>
-    </form>
-  </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modalForm">
+    <div class="modal_content">
+        <span class="close_modal" id="closeModal">&times;</span>
+        <h2>Prenota la tua consulenza</h2>
+        <form>
+        <input type="text" placeholder="Nome" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Telefono">
+        <textarea placeholder="Messaggio"></textarea>
+        <button type="submit" class="btn">Invia</button>
+        </form>
+    </div>
+    </div>
+
+
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Aran Cucine Piacenza - Via Esempio 123, Piacenza</p>
+    <p>© 2025 Aran Cucine Piacenza - SS 9 Via Emilia, 24, 29010 Pontenure PC</p>
   </footer>
 
   <script src="../js/script.js"></script>

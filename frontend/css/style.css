@@ -66,13 +66,11 @@ body {
 
 /* Sections */
 section {
-  padding: 4rem 2rem;
+  padding: 1.5rem 1rem;
   text-align: center;
 }
 
-.collections {
-  background-color: #e9e5e0;
-}
+
 
 .services {
   background-color: #e9e5e0;
@@ -86,13 +84,96 @@ section {
   background-color: #e9e5e0;
 }
 
+.collections {
+  background-color: #e9e5e0;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.collections h2 {
+  font-family: 'MOD20', sans-serif;
+  font-size: 2.5rem;
+  color: #5D7D52;
+  margin-bottom: 3rem;
+}
+
 .collections .grid {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
+
+.collections .card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  overflow: hidden;
+  flex: 1 1 300px;
+  max-width: 350px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);   /* parte più in basso */
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Hover effect: si alza di più */
+.collections .card:hover {
+  transform: translateY(-20px) scale(1.05); /* più alto e leggero zoom */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.collections .card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.collections .card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.collections .card:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.collections .card img {
+  width: 100%;
+  height: 220px;         /* più alte */
+  object-fit: cover;     /* immagine ritagliata proporzionata */
+  display: block;
+}
+
+.collections .card h3 {
+  font-size: 1.4rem;
+  color: #5D7D52;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+
+
+/* Animazione di entrata */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .collections h2 {
+    font-size: 2rem;
+  }
+  .collections .card {
+    max-width: 100%;
+  }
+  .collections .card img {
+    height: 180px;
+  }
+}
+
 
 .card {
   background: #f9f9f9;
@@ -136,17 +217,17 @@ footer {
 .inaugurazione {
   font-family: 'MOD20', sans-serif;
   color: #5D7D52;
-  font-size: 8rem;
+  font-size: 4.5rem;
   text-align: center;
   position: relative;
-  top: -40px;               /* spostato più in alto */
+  top: -20px;               /* spostato più in alto */
   animation: fadeInUp 2s ease;
 }
 
 .inaugurazione_2{
   font-family: 'MOD20', sans-serif;
   color: #5D7D52;
-  font-size: 4rem;
+  font-size: 2.5rem;
   text-align: center;
   position: relative;
   top: -40px;               /* spostato più in alto */
@@ -156,10 +237,10 @@ footer {
 .promo{
     font-family: Arial, Helvetica, sans-serif;
     color: #5D7D52;
-    font-size: 2 rem;
+    font-size: 2rem;
     text-align: center;
     position: relative;
-    top: -40px;               /* spostato più in alto */
+    top: -10px;               /* spostato più in alto */
     animation: fadeInUp 2s ease;
 }
 
@@ -199,7 +280,7 @@ footer {
   display: block;
   max-width: 800px;          /* dimensione ampia ma responsive */
   width: 90%;                /* si adatta su mobile */
-  margin: 2rem auto;         /* centrata */
+  margin: 1rem auto;         /* meno spazio sopra e sotto */
   opacity: 0;                /* parte invisibile */
   animation: fadeInUp 2s ease forwards; /* animazione ingresso */
 }
@@ -208,30 +289,30 @@ footer {
 @media (max-width: 768px) {
   .cooking_show {
     max-width: 95%;
+    margin: 0.8rem auto;      /* ancora più compatto su mobile */
   }
 }
 
 .cooking_show_section {
   display: flex;
-  /*margin-top: 4rem;*/            /* spazio sopra */
-  justify-content: center;     /* centra l’immagine orizzontalmente */
-  align-items: center;         /* centra verticalmente se serve */
-  padding: 4rem 2rem;          /* spazio intorno */    
+  justify-content: center;     
+  align-items: center;         
+  padding: 1rem 1rem;         /* ridotto rispetto a 1.5rem */
   text-align: center;
   background-color: #e9e5e0;
 }
 
 .cooking_show_section .cooking_show {
-  max-width: 1000px;           /* grande su desktop */
-  width: 90%;                  /* si adatta su mobile */
-  opacity: 0;                  /* parte invisibile */
+  max-width: 1000px;           
+  width: 90%;                  
+  opacity: 0;                  
   animation: fadeInUp 2s ease forwards;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .cooking_show_section {
-    padding: 2rem 1rem;
+    padding: 1rem;            /* meno spazio anche su mobile */
   }
   .cooking_show_section .cooking_show {
     max-width: 95%;
@@ -240,10 +321,10 @@ footer {
 
 .coming_soon {
   font-family: Arial, Helvetica, sans-serif;   /* stesso font elegante */
-  font-size: 3rem;                    /* grande e leggibile */
+  font-size: 2.2rem;                    /* grande e leggibile */
   text-align: center;                 /* centrato */
   color: #000;                        /* nero elegante (puoi cambiare) */
-  margin: 3rem 0 2rem 0;              /* spazio sopra e sotto */
+  margin: 2rem 0 1.5rem 0;              /* spazio sopra e sotto */
   letter-spacing: 2px;                /* spaziatura tra lettere */
   text-transform: uppercase;          /* tutto maiuscolo */
   opacity: 0;                         /* parte invisibile */
@@ -252,7 +333,7 @@ footer {
 
 .coming_soon_text {
   font-family: Arial, Helvetica, sans-serif; /* font più leggibile per il corpo */
-  font-size: 1.5rem;                         /* dimensione media */
+  font-size: 1.2rem;                         /* dimensione media */
   color: #333;                               /* colore neutro scuro */
   text-align: center;                        /* centrato */
   max-width: 800px;                          /* larghezza massima */
@@ -381,7 +462,7 @@ footer {
 
 .why_aran {
   background-color: #e9e5e0;   /* beige elegante */
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   text-align: center;
 }
 
@@ -464,6 +545,172 @@ footer {
     max-width: 100%;
   }
 }
+
+.showroom_section {
+  background-color: #e9e5e0; /* beige elegante */
+  padding: 4rem 2rem;
+}
+
+.showroom_grid {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.showroom_left, .showroom_right {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  flex: 1 1 400px;
+}
+
+.showroom_left h2, .showroom_right h2 {
+  font-family: 'MOD20', sans-serif;
+  font-size: 2rem;
+  color: #5D7D52;
+  margin-bottom: 1rem;
+}
+
+.showroom_left p, .showroom_right p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.btn_red {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #c0392b; /* rosso elegante */
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn_red:hover {
+  background: #a93226;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.map_container {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.store_hours p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .showroom_grid {
+    flex-direction: column;
+  }
+}
+
+/* Overlay */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 1000;
+}
+
+/* Contenuto */
+.modal_content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  transform: translateY(50px);
+  transition: transform 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Titolo */
+.modal_content h2 {
+  font-family: 'MOD20', sans-serif;
+  color: #5D7D52;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Pulsante chiusura */
+.close_modal {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Stato attivo */
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal.show .modal_content {
+  transform: translateY(0);
+}
+
+/* Animazione uscita */
+.modal.hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal.hide .modal_content {
+  transform: translateY(50px);
+}
+
+/* Form */
+.modal_content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal_content input,
+.modal_content textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.evento_img {
+  display: block;
+  max-width: 80%;   /* non supera mai la larghezza del contenitore */
+  width: 100%;       /* occupa sempre tutta la larghezza disponibile */
+  height: auto;      /* mantiene le proporzioni */
+  margin: 0 auto;    /* centrata */
+}
+
+
+
+
 
 
 
