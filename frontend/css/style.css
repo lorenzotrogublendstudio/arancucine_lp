@@ -1651,6 +1651,20 @@ footer p {
   footer p { font-size: .9rem; }
 }
 
+@media (max-width: 768px) {
+  .collections .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* centrati */
+    justify-content: center;
+  }
+
+  .collections .card {
+    max-width: 320px;      /* larghezza fissa */
+    width: 100%;           /* così resta proporzionato */
+    margin: 0 auto;        /* forza il centraggio */
+  }
+}
 
 
 
