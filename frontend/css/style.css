@@ -536,16 +536,30 @@ footer {
   }
 }
 
-/* Responsive */
+/* Mobile: card più compatte e senza spazi eccessivi */
 @media (max-width: 768px) {
-  .why_aran h2 {
-    font-size: 2rem;
+  .why_aran {
+    padding: 1.5rem 1rem; /* meno spazio ai lati */
   }
+
+  .why_grid {
+    flex-direction: column;
+    gap: 0.8rem;          /* ↓ riduce lo spazio verticale tra le card */
+  }
+
   .why_card {
+    flex: 1 1 auto;
     max-width: 100%;
-    padding: 1rem 0.6rem;
+    margin: 0;            /* ↓ elimina margini laterali aggiunti altrove */
+    padding: 1.25rem;     /* un po’ più compatto */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* ombra più leggera su mobile */
+  }
+
+  .why_card h3 {
+    margin-bottom: 0.5rem; /* stringe il titolo */
   }
 }
+
 
 .showroom_section {
   background-color: #e9e5e0; /* beige elegante */
@@ -556,6 +570,7 @@ footer {
   display: flex;
   gap: 3rem;
   justify-content: center;
+  flex-direction: column;
   align-items: flex-start;
   flex-wrap: wrap;
   max-width: 1200px;
@@ -1001,16 +1016,21 @@ img {
 }
 
 .hero {
+  background-color: #e9e5e0;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 1.5rem;
+  justify-content: flex-start;   /* allinea a sinistra */
+  align-items: center;
+  text-align: left;
+  padding: 1rem 2rem;
+  min-height: auto;
 }
+
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* 🔹 allinea tutto a sinistra */
+  text-align: left;        /* 🔹 testo a sinistra */
   gap: 0.5rem;
   margin-top: 0;
 }
@@ -1024,9 +1044,9 @@ img {
 
 .logo-title {
   display: flex;
-  align-items: center;   /* logo e testo allineati verticalmente */
+  align-items: center;
+  gap: 1rem;         /* spazio tra logo e testo */
   justify-content: flex-start; /* tutto a sinistra */
-  gap: 1rem;             /* spazio tra logo e scritta */
   width: 100%;
 }
 
@@ -1110,7 +1130,526 @@ img {
   box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
+/* === FIX SPAZI CARTE WHY su mobile (override finale) === */
+@media (max-width: 768px) {
+  .why_aran {
+    padding: 1.25rem 1rem;         /* meno aria sopra/sotto */
+  }
 
+  .why_grid {
+    flex-direction: column;
+    gap: 0.4rem !important;        /* ↓ stringe lo spazio tra card */
+    row-gap: 0.4rem !important;    /* compatibilità */
+    column-gap: 0 !important;
+    justify-content: stretch;
+  }
+
+  .why_card {
+    max-width: 100%;
+    margin: 0 !important;          /* niente margini extra */
+    padding: 1rem;                 /* contenuto più compatto */
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12); /* ombra più leggera */
+  }
+
+  .why_card h3 { 
+    margin: 0 0 .4rem; 
+  }
+  .why_card p { 
+    margin: 0;                      /* rimuove eventuali margini default */
+  }
+}
+
+/* === FIX definitivo spazi verticali nelle card WHY === */
+@media (max-width: 768px) {
+  .why_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;         /* distanza uniforme tra card */
+  }
+
+  .why_card {
+    margin: 0;           /* niente margini extra */
+    padding: 1.25rem;
+  }
+
+  .why_card h3 {
+    margin: 0 0 0.5rem 0; /* solo un piccolo margine sotto il titolo */
+  }
+
+  .why_card p {
+    margin: 0;           /* elimina margini di default del <p> */
+    line-height: 1.4;
+  }
+}
+
+/* Fix card WHY su mobile: niente grow, larghezza piena */
+@media (max-width: 768px) {
+  .why_grid {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;      /* le card occupano tutta la larghezza */
+  }
+
+  .why_card {
+    flex: 0 0 auto;            /* ← disattiva il grow che le allunga */
+    width: 100%;
+    max-width: none;           /* niente limite a 300px */
+    padding: 1.25rem;
+    margin: 0;
+  }
+
+  .why_card h3 { margin: 0 0 .5rem; }
+  .why_card p  { margin: 0; line-height: 1.45; }
+}
+
+/* ====== HEADER RESPONSIVE ====== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .logo-title { gap: .8rem; }
+  .logo-title .logo { max-width: 160px; margin: 0; }
+  .logo-title .inaugurazione { font-size: 2.6rem; top: 0; line-height: 1.05; }
+  .inaugurazione_2 { font-size: 1.2rem; top: 0; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero { padding: .75rem 1rem; }
+  .logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .6rem;
+    flex-wrap: wrap;             /* 🔹 permette di andare a capo */
+    width: 100%;
+  }
+  .logo-title .logo { 
+    max-width: 130px;            /* 🔹 logo più piccolo */
+    margin: 0;
+  }
+  .logo-title .inaugurazione {
+    font-size: 2rem;             /* 🔹 testo che non sfora */
+    line-height: 1.05;
+    top: 0;
+    flex: 1 1 auto;              /* 🔹 occupa spazio e se serve va a capo */
+    min-width: 160px;
+  }
+  .inaugurazione_2 {
+    font-size: 1rem;
+    top: 0;
+    width: 100%;                 /* 🔹 sempre sotto, a tutta riga */
+    text-align: left;
+    margin-top: .2rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .logo-title .logo { max-width: 110px; }
+  .logo-title .inaugurazione { font-size: 1.8rem; }
+  .inaugurazione_2 { font-size: .95rem; }
+}
+
+/* Layout ARAN + Show Cooking affiancati */
+.aran-showcooking {
+  display: flex;
+  align-items: flex-start;      /* allinea in alto i due blocchi */
+  justify-content: space-between;
+  gap: 3rem;
+  background-color: #e9e5e0;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;              /* 🔹 su mobile vanno sotto */
+}
+
+.aran-block {
+  flex: 1 1 50%;
+  text-align: left;             /* testo a sinistra su desktop */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* centra verticalmente contenuto */
+  gap: 1rem;
+}
+
+.showcooking-block {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;      /* immagine centrata */
+  align-items: center;
+}
+
+.showcooking-block img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+  .aran-showcooking {
+    flex-direction: column;
+    align-items: center;     /* 🔹 centro entrambi */
+    text-align: center;      /* 🔹 testo centrato */
+    gap: 2rem;
+  }
+
+  .aran-block {
+    flex: 1 1 100%;
+    align-items: center;     /* 🔹 contenuti centrati */
+    text-align: center;
+  }
+
+  .showcooking-block {
+    flex: 1 1 100%;
+  }
+}
+
+/* === ARAN + ShowCooking: layout desktop ben allineato === */
+.aran-showcooking {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  background-color: #e9e5e0;
+  padding: 3rem 2rem;
+  flex-wrap: nowrap;           /* affiancati in desktop */
+  max-width: 1200px;           /* contenitore centrato nella pagina */
+  margin: 0 auto;
+}
+
+.aran-block {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔹 centra orizzontalmente */
+  text-align: center;    /* 🔹 testo centrato */
+  gap: 1rem;
+}
+
+/* questi due elementi ti ricentravano tutto: li sblocchiamo */
+.aran-block .promo_box {
+  max-width: 680px;             /* o 100% se la vuoi a tutta colonna */
+  width: 100%;
+  margin: 1rem 0 2rem 0;        /* 🔹 niente auto */
+}
+
+.aran-block .coming_soon_text {
+  max-width: 680px;             /* uguale alla promo_box per coerenza */
+  margin: 0;                    /* 🔹 niente auto */
+  text-align: left;             /* 🔹 non centrato in desktop */
+}
+
+.aran-block .btn {
+  align-self: flex-start;       /* 🔹 bottone allineato a sinistra */
+}
+
+.showcooking-block {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-end;    /* immagine verso destra */
+  align-items: center;
+}
+
+.showcooking-block img {
+  max-width: 560px;             /* dimensione consigliata in desktop */
+  width: 100%;
+  height: auto;
+}
+
+/* === Mobile: torna tutto centrato e a colonna === */
+@media (max-width: 768px) {
+  .aran-showcooking {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    max-width: none;
+  }
+
+  .aran-block {
+    align-items: center;
+    text-align: center;
+  }
+
+  .aran-block .promo_box {
+    max-width: 900px;
+    margin: 1rem auto 1.5rem auto;   /* centrata in mobile */
+  }
+
+  .aran-block .coming_soon_text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .aran-block .btn {
+    align-self: center;
+  }
+
+  .showcooking-block {
+    justify-content: center;
+  }
+
+  .showcooking-block img {
+    max-width: 100%;
+  }
+}
+
+/* Sfondo pagina uniforme */
+body { background-color: #e9e5e0; }
+
+/* Sezione ARAN + ShowCooking full-bleed (nessun bordo bianco) */
+.aran-showcooking{
+  width: 100%;
+  max-width: none;      /* <-- rimuove il limite a 1200px */
+  margin: 0;            /* <-- niente margini laterali */
+  padding: 3rem 4vw;    /* padding fluido ai lati */
+  background-color: #e9e5e0;
+}
+
+/* Mantieni i contenuti leggibili su schermi larghi */
+@media (min-width: 1200px){
+  .aran-block,
+  .showcooking-block{
+    max-width: 640px;   /* larghezza massima per ciascuna colonna */
+  }
+}
+
+/* Bottone centrato nel blocco ARAN */
+.aran-block .btn {
+  margin: 0 auto;       /* centra orizzontalmente */
+  display: block;       /* si comporta come un elemento a blocco */
+  text-align: center;   /* testo dentro il bottone centrato */
+}
+
+/* Centra anche il testo sotto al bottone */
+.aran-block p.coming_soon_text {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.showcooking-block img {
+  max-width: 100%;   /* non esce mai dalla colonna */
+  width: 120%;       /* 🔹 ingrandisce del 20% rispetto al contenitore */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* centrato */
+}
+
+/* Avvicina i due blocchi su schermi grandi */
+@media (min-width: 1200px) {
+  .aran-showcooking {
+    justify-content: center;   /* centra il gruppo */
+    gap: 2rem;                 /* spazio tra le due colonne */
+  }
+
+  .aran-block,
+  .showcooking-block {
+    max-width: 500px;          /* colonne più strette, si avvicinano */
+    flex: 1;
+  }
+}
+
+/* Override Showroom Section */
+.showroom_grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.showroom_left,
+.showroom_right {
+  width: 100% !important;
+  max-width: 900px !important;  /* regola la larghezza massima */
+  margin: 0 auto !important;    /* centrato */
+}
+
+/* ===== Footer – override rapido ===== */
+
+/* 1) footer sempre al fondo anche con poca altezza pagina */
+html, body { height: 100%; }
+body{
+  min-height: 100dvh;     /* copre l'altezza del viewport */
+  display: flex;
+  flex-direction: column; /* permette al footer di spingersi in basso */
+}
+
+/* 2) stile footer */
+footer{
+  margin-top: auto;        /* spinge il footer al fondo */
+  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 1.2rem 2rem;    /* più respiro */
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.08); /* leggerissima separazione */
+}
+
+/* 3) contenuto centrato e con larghezza massima */
+footer p{
+  margin: 0;
+  max-width: 1200px;
+  margin-inline: auto;     /* centra il testo dentro il footer */
+  line-height: 1.5;
+  font-size: .95rem;
+}
+
+/* 4) responsive */
+@media (max-width: 768px){
+  footer{ padding: 1rem; }
+  footer p{ font-size: .85rem; padding: 0 .5rem; }
+}
+
+/* ===== Footer full-bleed, attaccato al fondo, senza bordi laterali ===== */
+html, body { height: 100%; }
+
+body{
+  min-height: 100dvh;              /* il body copre il viewport */
+  display: flex;
+  flex-direction: column;          /* il footer scivola in fondo */
+  overflow-x: hidden;              /* evita scroll orizzontale con 100vw */
+}
+
+footer{
+  margin-top: auto;                /* spinge il footer in basso */
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 4vw;
+
+  /* full-bleed: ignora i gutter del layout */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  border-radius: 0;
+  box-shadow: none;
+}
+
+footer p{
+  margin: 0;
+  line-height: 1.5;
+  font-size: .95rem;
+}
+
+@media (max-width: 768px){
+  footer{ padding: 1rem 3vw; }
+  footer p{ font-size: .85rem; }
+}
+
+/* ==== FIX FOOTER + overflow pagina ==== */
+
+/* 1) evita scroll orizzontale in tutta la pagina */
+html, body { overflow-x: hidden; }
+
+/* 2) lo showcooking NON deve uscire dal contenitore */
+.showcooking-block img{
+  width: 100% !important;     /* prima era 120% */
+  max-width: 720px;           /* regola a piacere (640-800) */
+}
+
+/* 3) footer full-bleed con testo davvero centrato */
+footer{
+  margin-top: auto;
+  width: 100%;
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding: 1.2rem 2rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+footer p{
+  margin: 0 auto;             /* centra il blocco testo */
+  max-width: none;            /* niente limite che lo "sposti" a sx */
+  line-height: 1.5;
+  font-size: .95rem;
+}
+
+/* 4) mappa sempre fluida (niente overflow del container) */
+.map_container iframe{
+  display:block;
+  width:100% !important;
+  border:0;
+}
+
+/* ==== FOOTER FIX DEFINITIVO ==== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* occupa tutto lo spazio sopra al footer */
+}
+
+footer {
+  width: 100vw;        /* prende tutta la viewport in larghezza */
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  margin: 0;           /* elimina spazi */
+  position: relative;  /* si ancora bene */
+  bottom: 0;
+  left: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.5;
+}
+
+/* ==== FOOTER STICKY & FULL-WIDTH ==== */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden; /* elimina bianco a destra se qualcosa sfora */
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* permette al footer di stare in fondo */
+}
+
+#page {
+  flex: 1 0 auto; /* occupa tutto lo spazio sopra al footer */
+}
+
+/* Footer pieno, centrato, senza spazi laterali/sotto */
+footer {
+  margin: 0;
+  padding: 1.2rem 2rem;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+footer p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: .95rem;
+}
+
+/* ==== STOP allo “sforamento” orizzontale dell’immagine show cooking ==== */
+/* (prima avevi width:120% che crea bianco a destra; qui la teniamo grande, ma non sfora mai) */
+.showcooking-block img {
+  width: 100% !important;      /* non oltrepassa mai la colonna */
+  max-width: 700px !important; /* resta generosa sui desktop */
+}
+
+/* opzionale: se vuoi un footer un filo più alto su mobile */
+@media (max-width: 768px){
+  footer { padding: 1rem; }
+  footer p { font-size: .9rem; }
+}
 
 
 
