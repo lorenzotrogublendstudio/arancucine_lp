@@ -1756,6 +1756,13 @@ footer p {
   }
 }
 
+@media (max-width: 768px) {
+    .logo-title .inaugurazione {
+        font-size: 1.4rem !important;
+        line-height: 1.1 !important;
+    }
+}
+
 
 
 
