@@ -215,22 +215,24 @@ footer {
   font-family: 'MOD20', sans-serif;
   color: #5D7D52;
   font-size: 4.5rem;
-  text-align: center;
-  position: relative;
-  top: -20px;               /* spostato più in alto */
+  /* via gli offset verticali */
+  position: static;
+  /* niente text-align qui: il posizionamento lo fa il flex */
   animation: fadeInUp 2s ease;
+  display: inline-block;
+  white-space: nowrap; /* resta su una riga */
 }
 
-.inaugurazione_2{
+.inaugurazione_2 {
   font-family: 'MOD20', sans-serif;
   color: #5D7D52;
   font-size: 2.5rem;
-  text-align: center;
-  position: relative;
-  top: -40px;               /* spostato più in alto */
+  position: static;           /* via top:-40px */
   animation: fadeInUp 2s ease;
+  display: inline-block;
+  white-space: nowrap;        /* resta su una riga */
+  margin-left: .6em;          /* spazio tra le due scritte */
 }
-
 .promo{
     font-family: Arial, Helvetica, sans-serif;
     color: #5D7D52;
@@ -590,6 +592,7 @@ footer {
   font-size: 2rem;
   color: #5D7D52;
   margin-bottom: 1rem;
+  line-height: 45px;
 }
 
 .showroom_left p, .showroom_right p {
@@ -1042,23 +1045,29 @@ img {
   margin: 0;
 }
 
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;         /* spazio tra logo e testo */
-  justify-content: flex-start; /* tutto a sinistra */
-  width: 100%;
+.logo-title{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:1rem;
+  width:100%;
+  flex-wrap: nowrap;         /* ← aggiungi questo */
 }
 
-.logo-title .logo {
-  max-width: 200px;   /* dimensiona logo */
-  margin: 0;
+/* togli l'auto qui */
+.logo-title .logo{
+  max-width:200px;
+  margin:0;
+  flex-shrink:0;
+  margin-right:0;            /* ← rimuovi il tuo margin-right:auto */
 }
 
-.logo-title .inaugurazione {
-  font-size: 3rem;     /* puoi regolare la grandezza */
-  text-align: left;    /* allinea a sinistra */
-  top: 0;
+/* spingi il testo a destra qui */
+.logo-title .inaugurazione{
+  margin-left:auto;          /* ← aggiungi questo */
+  font-size:3rem;
+  text-align:right;
+  top:0;
 }
 
 /* Sezione promo full screen */
@@ -1091,12 +1100,12 @@ img {
 }
 
 .promo_overlay h2 {
-  font-size: 3rem;
+  font-size: 5rem;
   margin-bottom: 1rem;
 }
 
 .promo_overlay p {
-  font-size: 1.5rem;
+  font-size: 3rem;
   line-height: 1.6;
 }
 
@@ -1665,6 +1674,93 @@ footer p {
     margin: 0 auto;        /* forza il centraggio */
   }
 }
+
+.logo-title{
+  display:grid;
+  grid-template-columns:auto 1fr; /* logo | text */
+  align-items:center;
+  column-gap:1rem;
+}
+
+.logo-title .logo{
+  grid-column:1;
+  max-width:200px; /* come già usi */
+}
+
+.logo-title .title-line{
+  grid-column:2;
+  justify-self:end;           /* allinea tutto a destra */
+  display:inline-flex;        /* tiene i due titoli sulla stessa riga */
+  align-items:baseline;       /* allinea visivamente le basi */
+  gap:.6em;                   /* spazio tra h2 e h3 */
+  white-space:nowrap;         /* non va a capo */
+  line-height: 46px;
+}
+
+/* facoltativo: dimensioni */
+.inaugurazione{ font-size:3rem; margin:0; }
+.inaugurazione_2{ font-size:2.2rem; margin:0; }
+
+/* === HEADER: grid desktop + stack mobile === */
+.logo-title{
+  display: grid !important;
+  grid-template-columns: auto 1fr !important; /* logo | testi */
+  align-items: center !important;
+  column-gap: 1rem !important;
+  width: 100% !important;
+}
+
+.logo-title .logo{
+  justify-self: start !important;
+  flex: 0 0 auto !important;
+  max-width: 200px; /* lascia la tua dimensione desktop */
+  margin: 0 !important;
+}
+
+.logo-title .inaugurazione,
+.logo-title .inaugurazione_2{
+  justify-self: end !important;   /* tutto a destra su desktop */
+  display: inline-block !important;
+  white-space: nowrap !important;  /* una sola riga su desktop */
+  margin: 0 !important;
+  text-align: right !important;
+}
+
+/* --- Mobile: impila e lascia andare a capo --- */
+@media (max-width: 768px){
+  .logo-title{
+    grid-template-columns: 1fr !important;  /* una sola colonna */
+    grid-auto-rows: auto;
+    row-gap: .25rem !important;
+    justify-items: start !important;        /* allinea a sinistra */
+  }
+
+  .logo-title .logo{
+    max-width: 150px !important;            /* logo un filo più piccolo */
+  }
+
+  .logo-title .inaugurazione,
+  .logo-title .inaugurazione_2{
+    justify-self: start !important;         /* testi sotto il logo */
+    white-space: normal !important;         /* consenti a capo */
+    text-align: left !important;
+  }
+
+  .logo-title .inaugurazione{
+    font-size: 2.1rem !important;
+    line-height: 1.1 !important;
+  }
+  .logo-title .inaugurazione_2{
+    font-size: 1.1rem !important;
+    line-height: 1.15 !important;
+  }
+}
+
+
+
+
+
+
 
 
 

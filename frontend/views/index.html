@@ -11,18 +11,24 @@
   <!-- Hero Section -->
   <header class="hero">
   
-    <div class="hero-content">
+    <!--<div class="hero-content">
       <div class="logo-title">
       <img src="../images/logo_aran.png" class="logo"/>
       <h2 class="inaugurazione">inaugurazione</h2>
       <h3 class="inaugurazione_2">sabato 18 ottobre ore 18:00</h3>
 
       </div>
-      <!--<p class="promo"><b>PROMO</b> per le prime 30 cucine
-        <b>4 ELETTRODOMESTICI OMAGGIO + TOP IN GRES</b> al prezzo del laminato
+    
+    </div>-->
 
-      </p>-->
+    <div class="logo-title">
+      <img src="../images/logo_aran.png" class="logo" />
+      <div class="title-line">
+        <h2 class="inaugurazione">inaugurazione <br> sabato 18 ottobre ore 18:00</h2>
+        
+      </div>
     </div>
+
 
   </header>
   <section class="promo_section">
@@ -51,7 +57,7 @@
   </div>
 
   <div class="showcooking-block">
-    <img src="../images/inaugurazione-landing-img-show-cooking.webp" alt="Show Cooking" />
+    <img src="../images/MAINARDI-SITO.webp" alt="Show Cooking" />
   </div>
 </section>
     <section class="evento_wrapper">
@@ -113,7 +119,7 @@
 
         <!-- Colonna destra -->
         <div class="showroom_right">
-        <h2>Vieni a trovarci nel nostro showroom a Piacenza</h2>
+        <h2>Vieni a trovarci nel nostro showroom a Pontenure (PC)</h2>
         <p>Scopri dal vivo le nuove collezioni ARAN e lasciati ispirare dal design.</p>
         
        <div class="map_container">
@@ -152,20 +158,22 @@
 
 
 
-    <!-- Modal -->
-    <div class="modal" id="modalForm">
+  <!-- Modal -->
+  <div class="modal" id="modalForm">
     <div class="modal_content">
-        <span class="close_modal" id="closeModal">&times;</span>
-        <h2>Prenota la tua consulenza</h2>
-        <form>
-        <input type="text" placeholder="Nome" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="Telefono">
-        <textarea placeholder="Messaggio"></textarea>
+      <span class="close_modal" id="closeModal">&times;</span>
+      <h2>Prenota la tua consulenza</h2>
+      <form id="leadForm">
+        <input type="text"  name="name"    placeholder="Nome" required>
+        <input type="email" name="email"   placeholder="Email" required>
+        <input type="tel"   name="phone"   placeholder="Telefono">
+        <textarea           name="message" placeholder="Messaggio" required></textarea>
         <button type="submit" class="btn">Invia</button>
-        </form>
+      </form>      
+      <div id="formMessage" style="margin-top:1rem; display:none;"></div>
     </div>
-    </div>
+  </div>
+
 
   </main>
 
@@ -175,5 +183,6 @@
   </footer>
 
   <script src="../js/script.js"></script>
+
 </body>
 </html>

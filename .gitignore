@@ -1,0 +1,14 @@
+# Composer
+/vendor/
+backend/vendor/
+composer.phar
+
+# Env
+.env
+.env.*
+backend/.env
+backend/.env.*
+
+# Log / cache
+*.log
+backend/mail.log
